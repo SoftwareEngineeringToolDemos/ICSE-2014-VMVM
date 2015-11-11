@@ -21,8 +21,9 @@ VirtualBox image: Ubunty-trusty64 with GUI and Java 1.8
 
 ###References:
   * Reference: http://aruizca.com/steps-to-create-a-vagrant-base-box-with-ubuntu-14-04-desktop-gui-and-virtualbox/
-  * Reference: https://atlas.hashicorp.com/chad-thompson/boxes/ubuntu-trusty64-gui
+  * Reference: https://atlas.hashicorp.com/chad-thompson/boxes/ubuntu-trusty64-gui 
 
 ###Notes:
+  * Used vagrant virtual box image "ubuntu-trusty64-gui" by Chad-Thompson from https://atlas.hashicorp.com/
   * If needed: Username- vagrant Password- vagrant
 
