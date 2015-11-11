@@ -1,6 +1,6 @@
 ###Environment:
 
-VirtualBox image: Ubunty-trusty64 with GUI and Java 1.7
+VirtualBox image: Ubunty-trusty64 with GUI and Java 1.8
 
 
 ###Folder Content:
@@ -24,7 +24,5 @@ VirtualBox image: Ubunty-trusty64 with GUI and Java 1.7
   * Reference: https://atlas.hashicorp.com/chad-thompson/boxes/ubuntu-trusty64-gui
 
 ###Notes:
-  * If needed:
-                       Username- vagrant  
-                       Password- vagrant
+  * If needed: Username- vagrant Password- vagrant
 
