@@ -6,8 +6,8 @@ VirtualBox image: Ubunty-trusty64 with GUI and Java 1.7
 ##Folder Content:
 
 1. __README.md__ 
-2. __Vagrantfile__ - Describes virtual machine for Vagrant
-3. __install.sh__ - Script to install Java OpenJDK7
+2. __Vagrantfile__ - Virtual machine file for Vagrant
+
 
 
 ##Vagrant VirtualBox VM set up instructions:
