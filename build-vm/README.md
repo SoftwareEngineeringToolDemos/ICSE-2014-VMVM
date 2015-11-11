@@ -1,6 +1,6 @@
 ###Environment:
 
-VirtualBox image: Ubunty-trusty64 with GUI and Java 1.8
+VirtualBox image: Ubunty-trusty64 with GUI and Java 1.7
 
 
 ###Folder Content:
