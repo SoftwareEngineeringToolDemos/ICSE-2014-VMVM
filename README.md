@@ -6,11 +6,9 @@ This repository contains information related to the tool VMVM presented in the I
 
 This repository _is not_ the original repository for this tool. Here are some links to the original project:
 
-*[Original Project Page](http://jonbell.net/wp-publications/vmvm/)
-
-*[Project GitHub Link](https://github.com/Programming-Systems-Lab/vmvm)
-
-*[Video of the Tool](https://youtu.be/sRpqF3rJERI)
+* [Original Project Page](http://jonbell.net/wp-publications/vmvm/)
+* [Project GitHub Link](https://github.com/Programming-Systems-Lab/vmvm)
+* [Video of the Tool](https://youtu.be/sRpqF3rJERI)
 
 In this repository, you will find:
 
