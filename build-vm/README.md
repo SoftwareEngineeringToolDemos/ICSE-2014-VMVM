@@ -1,29 +1,31 @@
-###Environment:
+Instructions to set up VM using VirtualBox and Vagrant
+------
 
-VirtualBox image: Ubunty-trusty64 with GUI and Java 1.7
-
-
-###Folder Content:
-
-1. __README.md__ 
-2. __Vagrantfile__ - Virtual machine file for Vagrant
+Environment
+------
+__Virtual Box used:__ [nritholtz/ubuntu-14.04.1](https://vagrantcloud.com/nritholtz/boxes/ubuntu-14.04.1)  
+Ubuntu 14.04.1 32-bit box with Guest Additions, Java 1.7, Ant, Maven and Git
 
 
+Steps to spin-up this Virtual Machine
+------
 
-###Vagrant VirtualBox VM set up instructions:
+1. Download and install [Vagrant](https://www.vagrantup.com/)
+2. Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+3. Download _Vagrantfile_ from [build-vm](https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM/tree/master/build-vm) directory to host machine.
+4. Using Command Prompt (Windows) or Teminal (Linux) navigate to folder where _Vagrantfile_ is located
+5. Run command "__vagrant up__"
+6. Please wait for Vagrant to download the base VM box and configure it for use.
+7. Files on Desktop will contain all necessary information needed to use tool VMVM.
+8. If needed, in Guest Machine use credentials:  
+username: __vagrant__  
+password: __vagrant__
 
-1. Download and install [VirtualBox](https://www.virtualbox.org/)
-2. Download and install [Vagrant](http://www.vagrantup.com/)
-3. Git clone this repo 
-  * git clone https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM.git
-4. Open Command Line or Terminal Window and cd to __/build-vm__ directory
-5. Run `vagrant up` to start the vm. First start will take longer, because of downloading the VM box. Do not interrupt until download and installation are complete.
 
-###References:
-  * Reference: http://aruizca.com/steps-to-create-a-vagrant-base-box-with-ubuntu-14-04-desktop-gui-and-virtualbox/
-  * Reference: https://atlas.hashicorp.com/chad-thompson/boxes/ubuntu-trusty64-gui 
 
-###Notes:
-  * Used vagrant virtual box image "ubuntu-trusty64-gui" by Chad-Thompson from https://atlas.hashicorp.com/
-  * If needed: Username- vagrant Password- vagrant
+Acknowledgements
+-----
+https://www.digitalocean.com/community/tutorials/how-to-install-java-on-ubuntu-with-apt-get
+https://vagrantcloud.com/nritholtz/boxes/ubuntu-14.04.1
+
 
