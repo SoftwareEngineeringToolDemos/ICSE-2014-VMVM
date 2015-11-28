@@ -1,0 +1,13 @@
+To install VMVM from scratch,
+
+1) download or clone from the repository on Gtihub: https://github.com/Programming-Systems-Lab/vmvm
+2) In terminal window, use “mvn package” to build
+3) The following 2 files are needed to run the tool:
+	vmvm-1.0.0-SNAPSHOT.jar
+
+	mvm-ant-junit-formatter-1.0.0-SNAPSHOT.jar
+they can be found  in
+	/vmvm/vmvm/target   and
+	/vmvm/vmvm-ant-junit-formatter/target     respectively
+
+Please follow steps in readme.txt to use the tool.
