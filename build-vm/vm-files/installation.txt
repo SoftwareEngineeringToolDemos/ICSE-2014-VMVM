@@ -1,8 +1,9 @@
 To install VMVM from scratch,
 
 1) download or clone from the repository on Gtihub: https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM
-2) In terminal window, use “mvn package” to build
-3) The following 2 files are needed to run the tool:
+2) Using sudo apt-get install Java 1.7 and Maven
+3) From terminal, navigate to VMVM source directory and use “mvn package” to build
+4) The following 2 files are needed to run the tool:
 	vmvm-1.0.0-SNAPSHOT.jar
 
 	mvm-ant-junit-formatter-1.0.0-SNAPSHOT.jar
