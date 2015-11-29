@@ -17,7 +17,7 @@ In this repository, you will find:
 * :white_check_mark: [The original tool](https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM) (available)
 * 
 
-Usage: refer to [USAGE.txt](https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM/blob/master/docs/USAGE.md) for detailed instructions on how to use VMVM.
+Usage: refer to [USAGE.txt](https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM/blob/master/docs/USAGE.txt) for detailed instructions on how to use VMVM.
 
 This repository was constructed by [Alex Valkovsky](https://github.com/avalkovsky), Sumeet Agarwal, Vineela Boddula, Sarah Elder, Shrenuj Gandhi under the supervision of [Emerson Murphy-Hill](https://github.com/CaptainEmerson). 
 
