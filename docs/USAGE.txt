@@ -1,0 +1,116 @@
+### How to use VMVM
+_____________________________________
+
+The purpose of VMVM (reads vroom-vroom) is speeding up Junit tests for large test suites.
+
+____________________________________________
+
+#### Example 1: Using VMVM with Apache Commons IO
+____________________________________________
+
+1) Download source code for [Apache Commons-IO](https://github.com/apache/commons-io.git)
+
+2) Make two copies of it in two separate directories where: 
+	commons-io  - contains source code of Apache Commons IO, downloaded from Github
+and	
+	commons-io-vmvm - same source code, but modified to use VMVM.
+
+3) First, in the /commons-io directory run commands: mvn compile, mvn test-compile, mvn test. Tests will run. Please take note of time it will take to execute all tests)
+
+4) Second, create a /commons-io-vmvm/lib folder and place vmvm-1.0.0-SNAPSHOT.jar	and vmvm-ant-junit-formatter-1.0.0-SNAPSHOT.jar
+into it. They can be found [here](https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM/tree/master/bin)
+
+5) Replace pom.xml file in the /commons-io-vmvm with this [one](https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM/blob/master/build-vm/vm-files/commons-io/pom.xml)
+
+6) From Terminal, navigate to modified "commons-io-vmvm" directory and run same commands: mvn compile, mvn test-compile, mvn test. Please note time to execute tests using VMVM.
+
+7) Compare results. In our tests, VMVM improved build time by 25-30%
+
+____________________________________________
+
+#### Example 2: Using VMVM with Apache Tomcat 8.0
+____________________________________________
+
+1) Download [source code for Apache Tomcat 8.0](https://github.com/apache/tomcat80.git)
+
+2) In Terminal, navigate to /tomcat80/ folder
+
+3) Tomcat is built using Ant. Therefore, in order to run unit tests, use following commands in terminal:
+	$ant compile 
+	$ant test 
+  Please note time it takes to run tests in the original tomcat.
+
+4) Second, we modify the tomcat so that it will use VMVM
+	4.1) Navigate to tomcat80 folder on Desktop
+	4.2) Create "lib" directory in it 
+	4.3) Place vmvm-1.0.0-SNAPSHOT.jar	and vmvm-ant-junit-formatter-1.0.0-SNAPSHOT.jar into it. They can be found [here](https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM/tree/master/bin)
+	4.2) Copy files vmvm-1.0.0-SNAPSHOT.jar and vmvm-ant-junit-formatter-1.0.0-SNAPSHOT.jar into /Desktop/tomcat80/lib/
+	4.3) Copy file [build.xml](https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM/blob/master/build-vm/vm-files/tomcat80/build.xml) to /tomcat80/, replacing the existing build.xml
+	4.5) In terminal window, navigate to /Desktop/tomcat80/ and use same commands to run tests:
+		ant compile
+		ant test
+  Please note time it takes to execute tests using VMVM
+
+5) Compare results. In our tests, VMVM improved test time by 25-30%
+
+_________________________________
+
+#### How to use VMVM on a new project:
+_________________________________
+
+1) download the source of Java project
+
+2) on the desktop, in ICSE-2014-VMVM/lib directory, there are 2 files that are needed to run the tool:
+	vmvm-1.0.0-SNAPSHOT.jar
+	mvm-ant-junit-formatter-1.0.0-SNAPSHOT.jar
+3) copy these 2 files into the /lib directory of the source code
+4.a.1) If it is a Maven build, following needs to be added to junit task in pom.xml file in the project directory of the source code:
+
+<dependency>
+<groupId>edu.columbia.cs.psl.vmvm</groupId>
+<artifactId>vmvm</artifactId>
+<version>1</version>
+<scope>system</scope>
+<systemPath>${project.basedir}/lib/vmvm-1.0.0-SNAPSHOT.jar</systemPath>
+</dependency>
+<dependency>
+<groupId>edu.columbia.cs.psl.vmvm</groupId>
+<artifactId>ant-mvn-formatter</artifactId>
+<version>1</version>
+<scope>system</scope>
+<systemPath>${project.basedir}/lib/vmvm-ant-junitformatter-
+1.0.0-SNAPSHOT.jar</systemPath>
+</dependency>
+
+4.a.2) Also, add this to the same pom.xml file in the surefire plugin:
+
+<properties>
+<property>
+<name>listener</name>
+<value>edu.columbia.cs.psl.vmvm.MvnVMVMListener</value>
+</property>
+</properties>
+
+4.b) If it is an Ant build, modify the build.xml - make sure that <junit … forkMode="once"> and add this to Junit task:
+
+<classpath>
+<pathelement path="${project.home}/lib/vmvm-ant-junitformatter-1.0.0-SNAPSHOT.jar" />
+<pathelement location="${project.home}/lib/vmvm-1.0.0-SNAPSHOT.jar"/>
+<pathelement location="${project.home}/gen/"/>
+</classpath>
+<formatter classname="edu.columbia.cs.psl.vmvm.AntJUnitTestListener"
+extension=".xml"/>
+<jvmarg value="-Xbootclasspath/a:vmvm-1.0.0-SNAPSHOT.jar"/>
+
+where “project.home” and "project.basedir" points to the source's main directory
+
+4.c) If the project does not use neither Ant nor Maven, from directory one level above the project directory, run vmvm instrumenter using vmvm-1.0.0-SNAPSHOT.jar 
+To do that, in Terminal, run 
+
+$java -jar vmvm-1.0.0-SNAPSHOT.jar <project directory> <output directory>
+
+where <project directory> is the folder to be instrumented, and <output directory> (which vmvm will create) is the folder with the instrumented code.
+
+5.a) For Maven builds, from the Terminal, run mvn compile, mvn test-compile and mvn test in the Java project's main directory
+5.b) For Ant builds, run ant test-compile and ant test
+5.c) For builds that don't use Ant or Maven run tests in the instrumented <output directory>
