@@ -44,7 +44,7 @@ ____________________________________________
 4) Second, we modify the tomcat so that it will use VMVM
 	4.1 Navigate to tomcat80 folder on Desktop
 	4.2 Create "lib" directory in it 
-	4.3 Navigate to folder /ICSE-2014-VMVM/bin/ on Desktop
+	4.3 Navigate to folder /bin/ on Desktop
 	4.2 Copy files vmvm-1.0.0-SNAPSHOT.jar and vmvm-ant-junit-formatter-1.0.0-SNAPSHOT.jar into /Desktop/tomcat80/lib/
 	4.3 From Desktop, navigate to /Desktop/ICSE-2014-VMVM/build-vm/vm-files/tomcat80/ and locate build.xml
 	4.4 Copy file build.xml to /Desktop/tomcat80/, replacing the existing build.xml
