@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Terminal
+TryExec=gnome-terminal
+Exec=gnome-terminal
+Icon=utilities-terminal
+Type=Application
