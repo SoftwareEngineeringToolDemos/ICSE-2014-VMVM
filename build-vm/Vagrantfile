@@ -23,22 +23,66 @@ Vagrant.configure(2) do |config|
    end
  
   # Provisioning script
-  
+   
    config.vm.provision "shell", inline: <<-SHELL 
+   
+  # Disable screensaver lock and screen blackout
+    sudo gsettings set org.gnome.desktop.session idle-delay 0
     sudo gsettings set org.gnome.desktop.screensaver lock-enabled false
   # Change user full name to vagrant
 	sudo chfn -f "vagrant" vagrant
   # Install Java, Ant, Maven and Git
     sudo apt-get update
-	sudo apt-get install -y openjdk-7-jdk
+    sudo apt-get install -y openjdk-7-jdk
 	sudo apt-get install -y ant
 	sudo apt-get install -y maven
 	sudo apt-get install -y git
   # Git clone tool to folder on Desktop
 	sudo git clone https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM.git "Desktop/ICSE-2014-VMVM"
-	cd Desktop
   # Change ownership of folder to user "vagrant" for ease of use
-	sudo chown -v -R vagrant ICSE-2014-VMVM
+	sudo chown -v -R vagrant /home/vagrant/Desktop/ICSE-2014-VMVM/
+  	
+  # Copy installation.txt, Readme.txt, link to video, license.txt to Desktop
+  
+	sudo cp -r /home/vagrant/Desktop/ICSE-2014-VMVM/build-vm/vm-files/installation.txt /home/vagrant/Desktop/
+	sudo cp -r /home/vagrant/Desktop/ICSE-2014-VMVM/build-vm/vm-files/Readme.txt /home/vagrant/Desktop/
+	sudo cp -r /home/vagrant/Desktop/ICSE-2014-VMVM/build-vm/vm-files/tool_demo.desktop /home/vagrant/Desktop/
+	sudo cp -r /home/vagrant/Desktop/ICSE-2014-VMVM/build-vm/vm-files/license.txt /home/vagrant/Desktop/
+	sudo chown -v -R vagrant /home/vagrant/Desktop/
+	
+  # Download examples for VMVM
+  
+    sudo git clone https://github.com/apache/commons-io.git "Desktop/Examples/commons-io"
+	sudo git clone https://github.com/apache/commons-io.git "Desktop/Examples/commons-io-vmvm"
+	sudo chown -R vagrant /home/vagrant/Desktop/Examples/
+	sudo mkdir "/home/vagrant/Desktop/Examples/commons-io-vmvm/lib/"
+	sudo chown -R vagrant /home/vagrant/Desktop/Examples/commons-io-vmvm/lib/
+	sudo wget -O /home/vagrant/Desktop/Examples/commons-io-vmvm/lib/vmvm-1.0.0-SNAPSHOT.jar https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM/raw/master/bin/vmvm-1.0.0-SNAPSHOT.jar
+	sudo wget -O /home/vagrant/Desktop/Examples/commons-io-vmvm/lib/vmvm-ant-junit-formatter-1.0.0-SNAPSHOT.jar https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM/raw/master/bin/vmvm-ant-junit-formatter-1.0.0-SNAPSHOT.jar
+	sudo rm /home/vagrant/Desktop/Examples/commons-io-vmvm/pom.xml
+	sudo wget -O /home/vagrant/Desktop/Examples/commons-io-vmvm/pom.xml "https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM/raw/master/build-vm/vm-files/commons-io/pom.xml"
+    sudo chown -v -R vagrant /home/vagrant/Desktop/Examples/
+	
+  # Copy binaries to Desktop
+    
+    sudo mkdir "/home/vagrant/Desktop/bin/"
+    sudo chown -v -R vagrant /home/vagrant/Desktop/bin/	
+    sudo cp /home/vagrant/Desktop/ICSE-2014-VMVM/bin/vmvm-1.0.0-SNAPSHOT.jar /home/vagrant/Desktop/bin/
+	sudo cp /home/vagrant/Desktop/ICSE-2014-VMVM/bin/vmvm-ant-junit-formatter-1.0.0-SNAPSHOT.jar /home/vagrant/Desktop/bin/
+    sudo chown -v -R vagrant /home/vagrant/Desktop/bin/	
+
+	
+  # Have Terminal window open on startup
+  
+	sudo wget -O "/home/vagrant/Downloads/terminal.desktop" https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM/raw/master/build-vm/vm-files/terminal.desktop
+	sudo chown -R vagrant "/home/vagrant/Downloads/terminal.desktop"
+	sudo mkdir "/home/vagrant/.config/autostart/"
+	sudo chown -R vagrant "/home/vagrant/.config/autostart/"
+	sudo cp /home/vagrant/Downloads/terminal.desktop "/home/vagrant/.config/autostart/"
+	sudo chown -R vagrant "/home/vagrant/.config/autostart/terminal.desktop"
+  
+  # Reboot for changes
 	sudo reboot
+  
    SHELL
 end
