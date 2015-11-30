@@ -33,11 +33,15 @@ ____________________________________________
 
 1) Download [source code for Apache Tomcat 8.0](https://github.com/apache/tomcat80.git)
 
-2) In Terminal, navigate to /tomcat80/ folder
+2) In Terminal, navigate to /tomcat80/ folder. If running Windows, skip to step (3), if running Linux --> step (2.1)
+	2.1) Locate and and open file "build.xml"
+	2.2) Edit line 1431 - delete "threads" attribute. Otherwise, in Linux, Junit will terminate with an error.
+		it says "threads="${test.threads}" >"
+		it should be just ">"
 
 3) Tomcat is built using Ant. Therefore, in order to run unit tests, use following commands in terminal:
-	$ant compile 
-	$ant test 
+	$sudo ant compile 
+	$sudo ant test 
   Please note time it takes to run tests in the original tomcat.
 
 4) Second, we modify the tomcat so that it will use VMVM
