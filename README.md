@@ -15,7 +15,7 @@ In this repository, you will find:
 * :white_check_mark: [Source code](https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM) (available)
 * :white_check_mark: [Binaries](bin) (available)
 * :white_check_mark: [The original tool](https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM) (available)
-* 
+* :white_check_mark: [Virtual Machine containing tool](https://drive.google.com/a/ncsu.edu/file/d/0B2Mp6AYH76iLWXhhNmhtODFmZWM/view?usp=sharing) (available)
 
 Usage: refer to [USAGE.txt](https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-VMVM/blob/master/docs/USAGE.txt) for detailed instructions on how to use VMVM.
 
