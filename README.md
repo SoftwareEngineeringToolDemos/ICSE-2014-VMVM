@@ -23,4 +23,4 @@ This repository was constructed by [Alex Valkovsky](https://github.com/avalkovsk
 
 Acknowledgements
 
-The authors of this software are [Jonathan Bell](http://jonbell.net) and [Gail Kaiser](http://www.cs.columbia.edu/~kaiser/). 
+The authors of this software are [Jonathan Bell](http://jonbell.net) and [Gail Kaiser](http://www.cs.columbia.edu/~kaiser/). Thanks to Jonathan Bell for help in establishing this repository.
